@@ -1,0 +1,144 @@
+@use './mixins' as *;
+
+.footer {
+    background: var(--color-yellow-bg);
+
+    &_container {
+        padding: 40px 4%;
+
+        &_content {
+            display: flex;
+            justify-content: space-between;
+
+            &_logo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 40px;
+
+                .logo {
+                    width: 80px;
+                }
+
+                .logotext {
+                    width: 150px;
+                }
+            }
+
+            &_nav {
+                .footer-nav {
+                    &_list {
+                        display: grid;
+                        grid-template-columns: repeat(4, auto);
+                        grid-template-rows: repeat(2, auto);
+                        gap: 1.2em;
+
+                        a {
+                            color: var(--color-text-black);
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                .footer-sns {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 2em;
+
+
+                    &_line {
+                        .btn-line {
+                            background: var(--color-line);
+                            color: var(--color-white);
+                            display: flex;
+                            align-items: center;
+                            padding: .8em;
+                            font-size: 12px;
+
+                            img {
+                                width: 30px;
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+
+                    &_link {
+                        margin-left: 2em;
+
+                        .link-text {
+                            color: var(--color-text-black);
+                            display: flex;
+                            border-bottom: 1px solid;
+                            font-size: 12px;
+
+                            img {
+                                object-fit: contain;
+                                position: relative;
+                                top: -1px;
+                                padding-left: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-copyright {
+        background: var(--color-primary);
+        text-align: center;
+        padding: 1rem;
+
+        small {
+            color: var(--color-white);
+            font-size: 12px;
+        }
+
+        .cr-sp {
+            display: none;
+        }
+
+        @include mq {
+            .cr-pc {
+                display: none;
+            }
+
+            .cr-sp {
+                display: block;
+            }
+        }
+    }
+}
+
+
+//SP版
+@include mq {
+    .footer_container_content {
+        flex-direction: column;
+        align-items: center;
+
+        &_logo {
+            margin-bottom: 2em;
+        }
+
+        &_nav {
+            .footer-nav {
+                padding: 0 20px;
+
+                &_list {
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(4, auto);
+                    gap: .3em;
+                }
+            }
+        }
+
+        .footer-sns {
+            flex-direction: column;
+
+            &_link {
+                margin: 1em 0;
+            }
+        }
+    }
+}
